@@ -4,13 +4,13 @@ using Traversal.DataAccess.EntityFramework;
 
 namespace TraversalCoreProje.ViewComponents.Default
 {
-    public class _Feature : ViewComponent
+    public class _SubAbout : ViewComponent
     {
-        private FeatureManager featureManager = new FeatureManager(new EfFeatureDal());
+        private SubAboutManager _subAboutManager = new SubAboutManager(new EfSubAboutDal());
         public IViewComponentResult Invoke()
         {
-
-            return View();
+            var values = _subAboutManager.TGetList();
+            return View(values);
         }
     }
 }
