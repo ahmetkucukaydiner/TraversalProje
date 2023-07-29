@@ -1,0 +1,33 @@
+﻿@using Traversal.Entities.Concrete
+@model List<Destination>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1> Aktif Tur Rotalarımız</h1>
+<table class="table table-bordered">
+    <tr>
+        <td>#</td>
+        <td>Şehir</td>
+        <td>Süre</td>
+        <td>Kapasite</td>
+        <td>Fiyat</td>
+        <td>Detaylar</td>
+        
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.City</td>
+            <td>@item.DayNight</td>
+            <td>@item.Capacity</td>
+            <td>@item.Price</td>
+            <td><a href="#" class="btn btn-outline-info">Detaylar</a></td>
+            <td></td>
+        </tr>
+    }
+</table>
+
+

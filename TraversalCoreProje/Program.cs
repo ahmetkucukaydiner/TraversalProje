@@ -8,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<Context>();
-builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>()
+       .AddErrorDescriber<CustomIdentityValidator>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc(config =>
 {
@@ -32,9 +33,9 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseAuthentication();
-
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
