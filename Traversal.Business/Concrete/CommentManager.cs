@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using Traversal.Business.Abstract;
+﻿using Traversal.Business.Abstract;
 using Traversal.DataAccess.Abstract;
 using Traversal.Entities.Concrete;
 
@@ -29,7 +28,7 @@ namespace Traversal.Business.Concrete
             _commentDal.Update(entity);
         }
 
-        public List<Comment> TGetList(Expression<Func<Comment, bool>> filter = null)
+        public List<Comment> TGetList()
         {
             return _commentDal.GetList();
         }

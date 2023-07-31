@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using Traversal.Business.Abstract;
+﻿using Traversal.Business.Abstract;
 using Traversal.DataAccess.Abstract;
 using Traversal.Entities.Concrete;
 
@@ -29,7 +28,7 @@ namespace Traversal.Business.Concrete
             _destinationDal.Update(entity);
         }
 
-        public List<Destination> TGetList(Expression<Func<Destination, bool>> filter = null)
+        public List<Destination> TGetList()
         {
             return _destinationDal.GetList();
         }

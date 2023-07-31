@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using Traversal.Business.Abstract;
+﻿using Traversal.Business.Abstract;
 using Traversal.DataAccess.Abstract;
 using Traversal.Entities.Concrete;
 
@@ -29,7 +28,7 @@ namespace Traversal.Business.Concrete
             _reservationDal.Update(entity);
         }
 
-        public List<Reservation> TGetList(Expression<Func<Reservation, bool>> filter = null)
+        public List<Reservation> TGetList()
         {
             return _reservationDal.GetList();
         }
@@ -37,6 +36,11 @@ namespace Traversal.Business.Concrete
         public Reservation TGetByID(int id)
         {
             return _reservationDal.Get(x => x.Id == id);
+        }
+
+        public List<Reservation> GetListApprovalReservation(int id)
+        {
+            return _reservationDal.GetList(x => x.AppUserId == id && x.Status == "Onay Bekliyor");
         }
     }
 }

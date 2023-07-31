@@ -1,0 +1,30 @@
+﻿@using Traversal.Entities.Concrete
+@model List<Reservation>
+@{
+    ViewData["Title"] = "MyApprovalReservation";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Onay Bekleyen Rezervasyonlar</h1>
+
+
+<table class="table-bordered">
+    <tr>
+        <td>#</td>
+        <td>Lokasyon</td>
+        <td>Kişi Sayısı</td>
+        <td>Rezervasyon Tarihi</td>
+        <td>Durum</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            @*<td>@item.Destination</td>*@
+            <td>@item.PersonCount</td>
+            <td>@item.ReservationDate</td>
+            <td>@item.Status</td>
+        </tr>
+    }
+</table>
+

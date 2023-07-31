@@ -18,5 +18,6 @@ namespace Traversal.Entities.Concrete
         public string Details2 { get; set; }
         public string ImageUrl2 { get; set; }
         public List<Comment> Comment { get; set; }
+        public List<Reservation> Reservations { get; set; }
     }
 }
