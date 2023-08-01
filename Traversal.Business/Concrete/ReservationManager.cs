@@ -38,9 +38,19 @@ namespace Traversal.Business.Concrete
             return _reservationDal.Get(x => x.Id == id);
         }
 
-        public List<Reservation> GetListApprovalReservation(int id)
+        public List<Reservation> GetListWithReservationByWaitApproval(int id)
         {
-            return _reservationDal.GetList(x => x.AppUserId == id && x.Status == "Onay Bekliyor");
+            return _reservationDal.GetListWithReservationByWaitApproval(id);
+        }
+
+        public List<Reservation> GetListWithReservationByPrevious(int id)
+        {
+            return _reservationDal.GetListWithReservationByPrevious(id);
+        }
+
+        public List<Reservation> GetListWithReservationByAccepted(int id)
+        {
+            return _reservationDal.GetListWithReservationByAccepted(id);
         }
     }
 }
