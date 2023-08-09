@@ -8,7 +8,7 @@ namespace Traversal.DataAccess.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=(localdb)\\MSSQLLocalDB; database=TraversalDB; integrated security = true;");
+            optionsBuilder.UseSqlServer("server=OBL-COM-0305\\SQLEXPRESS; database=TraversalDB; integrated security = true; TrustServerCertificate=True;") ;
         }
 
         public DbSet<About> Abouts { get; set; }
