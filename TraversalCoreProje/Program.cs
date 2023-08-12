@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Traversal.Business.Abstract;
+using Traversal.Business.Concrete;
+using Traversal.DataAccess.Abstract;
 using Traversal.DataAccess.Concrete;
+using Traversal.DataAccess.EntityFramework;
 using Traversal.Entities.Concrete;
 using TraversalCoreProje.Models;
 
@@ -11,6 +15,16 @@ builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>()
        .AddErrorDescriber<CustomIdentityValidator>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<ICommentService, CommentManager>();
+builder.Services.AddScoped<ICommentDal, EfCommentDal>();
+
+builder.Services.AddScoped<IDestinationService, DestinationManager>();
+builder.Services.AddScoped<IDestinationDal, EfDestinationDal>();
+
+builder.Services.AddScoped<IAppUserService, AppUserManager>();
+builder.Services.AddScoped<IAppUserDal, EfAppUserDal>();
+
 builder.Services.AddMvc(config =>
 {
     var policy = new AuthorizationPolicyBuilder()

@@ -42,5 +42,10 @@ namespace Traversal.Business.Concrete
         {
             return _commentDal.GetList(x => x.DestinationId == id);
         }
+
+        public List<Comment> GetListCommentWithDestination()
+        {
+            return _commentDal.GetListCommentWithDestination();
+        }
     }
 }

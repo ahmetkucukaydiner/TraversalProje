@@ -4,5 +4,6 @@ namespace Traversal.DataAccess.Abstract
 {
     public interface ICommentDal : IGenericDal<Comment>
     {
+        List<Comment> GetListCommentWithDestination();
     }
 }
