@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Serilog;
+using Serilog.Core;
 using Traversal.Business.Container;
 using Traversal.DataAccess.Concrete;
 using Traversal.Entities.Concrete;
@@ -8,6 +10,16 @@ using TraversalCoreProje.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+Logger log = new LoggerConfiguration()
+             .MinimumLevel.Information()
+             .WriteTo.Seq("http://localhost:5341/")
+             .Enrich.FromLogContext()
+             .CreateLogger();
+
+builder.Host.UseSerilog(log);
+
+
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>()
        .AddErrorDescriber<CustomIdentityValidator>();
@@ -25,7 +37,10 @@ builder.Services.AddMvc(config =>
 
 builder.Services.AddMvc();
 
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
