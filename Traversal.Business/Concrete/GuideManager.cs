@@ -37,5 +37,15 @@ namespace Traversal.Business.Concrete
         {
             return _guideDal.Get(x => x.Id == id);
         }
+
+        public void TChangeToTrueByGuide(int id)
+        {
+            _guideDal.ChangeToTrueByGuide(id);
+        }
+
+        public void TChangeToFalseByGuide(int id)
+        {
+            _guideDal.ChangeToFalseByGuide(id);
+        }
     }
 }
