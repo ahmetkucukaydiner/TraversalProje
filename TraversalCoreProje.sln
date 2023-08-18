@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraversalCoreProje", "TraversalCoreProje\TraversalCoreProje.csproj", "{3F5604CA-DFBF-4B2D-A3DE-B227D0AE8556}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TraversalCoreProje", "TraversalCoreProje\TraversalCoreProje.csproj", "{3F5604CA-DFBF-4B2D-A3DE-B227D0AE8556}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traversal.Entities", "Traversal.Entities\Traversal.Entities.csproj", "{9DC0E893-6B52-452D-AEE9-832E1E4F7B63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Traversal.Entities", "Traversal.Entities\Traversal.Entities.csproj", "{9DC0E893-6B52-452D-AEE9-832E1E4F7B63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traversal.DataAccess", "Traversal.DataAccess\Traversal.DataAccess.csproj", "{0FE92E25-C201-426F-B338-6DA49226DFD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Traversal.DataAccess", "Traversal.DataAccess\Traversal.DataAccess.csproj", "{0FE92E25-C201-426F-B338-6DA49226DFD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traversal.Business", "Traversal.Business\Traversal.Business.csproj", "{8AF65D72-2693-4DA1-B708-9C16670CDB9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Traversal.Business", "Traversal.Business\Traversal.Business.csproj", "{8AF65D72-2693-4DA1-B708-9C16670CDB9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traversal.DTOLayer", "Traversal.DTOLayer\Traversal.DTOLayer.csproj", "{8864B3EF-6796-4BDC-A66C-CF7816675537}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8AF65D72-2693-4DA1-B708-9C16670CDB9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AF65D72-2693-4DA1-B708-9C16670CDB9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AF65D72-2693-4DA1-B708-9C16670CDB9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8864B3EF-6796-4BDC-A66C-CF7816675537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8864B3EF-6796-4BDC-A66C-CF7816675537}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8864B3EF-6796-4BDC-A66C-CF7816675537}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8864B3EF-6796-4BDC-A66C-CF7816675537}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
