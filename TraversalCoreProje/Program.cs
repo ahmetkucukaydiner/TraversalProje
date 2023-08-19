@@ -1,9 +1,12 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Serilog;
 using Serilog.Core;
 using Traversal.Business.Container;
+using Traversal.Business.ValidationRules;
 using Traversal.DataAccess.Concrete;
+using Traversal.DTOLayer.DTOs.AnnouncementDTOs;
 using Traversal.Entities.Concrete;
 using TraversalCoreProje.Models;
 
@@ -19,13 +22,18 @@ Logger log = new LoggerConfiguration()
 
 builder.Host.UseSerilog(log);
 
-
 builder.Services.AddDbContext<Context>();
-builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>()
+builder.Services.AddIdentity<AppUser, AppRole>()
+       .AddEntityFrameworkStores<Context>()
        .AddErrorDescriber<CustomIdentityValidator>();
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.ContainerDependencies();
+
+builder.Services.AddAutoMapper(typeof(Program));
+
+builder.Services.AddTransient<IValidator<AnnouncementAddDto>, AnnouncementValidator>();
 
 builder.Services.AddMvc(config =>
 {
@@ -37,10 +45,7 @@ builder.Services.AddMvc(config =>
 
 builder.Services.AddMvc();
 
-
 var app = builder.Build();
-
-
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -67,7 +72,6 @@ app.UseEndpoints(endpoints =>
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 });
-
 
 app.UseEndpoints(endpoints =>
 {

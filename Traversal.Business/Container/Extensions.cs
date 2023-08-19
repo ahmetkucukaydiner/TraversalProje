@@ -30,6 +30,9 @@ namespace Traversal.Business.Container
 
             services.AddScoped<IContactUsDal, EfContactUsDal>();
             services.AddScoped<IContactUsService, ContactUsManager>();
+
+            services.AddScoped<IAnnouncementService, AnnouncementManager>();
+            services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
         }
     }
 }

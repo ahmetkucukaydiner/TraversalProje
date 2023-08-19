@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Traversal.Entities.Concrete;
 using TraversalCoreProje.Models;
 
 namespace TraversalCoreProje.Controllers
 {
-    [AllowAnonymous]
     public class LoginController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
