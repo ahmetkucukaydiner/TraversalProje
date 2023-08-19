@@ -1,8 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 using Traversal.Business.Abstract;
 using Traversal.Business.Concrete;
+using Traversal.Business.ValidationRules.AnnouncementValidationRules;
 using Traversal.DataAccess.Abstract;
 using Traversal.DataAccess.EntityFramework;
+using Traversal.DTOLayer.DTOs.AnnouncementDTOs;
 
 namespace Traversal.Business.Container
 {
@@ -33,6 +36,11 @@ namespace Traversal.Business.Container
 
             services.AddScoped<IAnnouncementService, AnnouncementManager>();
             services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
+        }
+
+        public static void CustomValidator(this IServiceCollection services)
+        {
+            services.AddTransient<IValidator<AnnouncementAddDto>, AnnouncementValidator>();
         }
     }
 }

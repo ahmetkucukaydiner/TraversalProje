@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
 using Traversal.DTOLayer.DTOs.AnnouncementDTOs;
 
-namespace Traversal.Business.ValidationRules
+namespace Traversal.Business.ValidationRules.AnnouncementValidationRules
 {
-    public class AnnouncementValidator : AbstractValidator<AnnouncementAddDto>
+    public class AnnouncementUpdateValidator : AbstractValidator<AnnouncementUpdateDto>
     {
-        public AnnouncementValidator()
+        public AnnouncementUpdateValidator()
         {
             RuleFor(x => x.Title).NotEmpty().WithMessage("Lütfen başlığı boş geçmeyin");
             RuleFor(x => x.Content).NotEmpty().WithMessage("Lütfen duyuru içeriğini boş geçmeyin");

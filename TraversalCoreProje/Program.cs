@@ -1,12 +1,9 @@
-using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Serilog;
 using Serilog.Core;
 using Traversal.Business.Container;
-using Traversal.Business.ValidationRules;
 using Traversal.DataAccess.Concrete;
-using Traversal.DTOLayer.DTOs.AnnouncementDTOs;
 using Traversal.Entities.Concrete;
 using TraversalCoreProje.Models;
 
@@ -33,7 +30,7 @@ builder.Services.ContainerDependencies();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
-builder.Services.AddTransient<IValidator<AnnouncementAddDto>, AnnouncementValidator>();
+builder.Services.CustomValidator();
 
 builder.Services.AddMvc(config =>
 {
