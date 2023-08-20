@@ -76,7 +76,5 @@ namespace TraversalCoreProje.Controllers
             }
             return View();
         }
-
-
     }
 }
