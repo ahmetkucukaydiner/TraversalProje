@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Serilog;
@@ -17,6 +18,8 @@ builder.Services.AddScoped<GetDestinationByIdQueryHandler>();
 builder.Services.AddScoped<CreateDestinationCommandHandler>();
 builder.Services.AddScoped<RemoveDestinationCommandHandler>();
 builder.Services.AddScoped<UpdateDestinationCommandHandler>();
+
+builder.Services.AddMediatR(typeof(Program));
 
 Logger log = new LoggerConfiguration()
              .MinimumLevel.Information()
