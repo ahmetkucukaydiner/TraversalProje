@@ -5,11 +5,14 @@ using Serilog.Core;
 using Traversal.Business.Container;
 using Traversal.DataAccess.Concrete;
 using Traversal.Entities.Concrete;
+using TraversalCoreProje.CQRS.Handlers.DestinationHandlers;
 using TraversalCoreProje.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddScoped<GetAllDestinationQueryHandler>();
 
 Logger log = new LoggerConfiguration()
              .MinimumLevel.Information()
