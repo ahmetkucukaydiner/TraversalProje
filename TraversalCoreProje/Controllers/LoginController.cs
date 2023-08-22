@@ -27,7 +27,7 @@ namespace TraversalCoreProje.Controllers
         [HttpPost]
         public async Task<IActionResult> SignUp(UserRegisterViewModel _userRegisterViewModel)
         {
-            AppUser appUser = new AppUser()
+            AppUser appUser = new AppUser
             {
                 Name = _userRegisterViewModel.Name,
                 Surname = _userRegisterViewModel.Surname,

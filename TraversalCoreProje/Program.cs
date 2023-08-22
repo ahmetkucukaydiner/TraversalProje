@@ -13,6 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddScoped<GetAllDestinationQueryHandler>();
+builder.Services.AddScoped<GetDestinationByIdQueryHandler>();
+builder.Services.AddScoped<CreateDestinationCommandHandler>();
+builder.Services.AddScoped<RemoveDestinationCommandHandler>();
+builder.Services.AddScoped<UpdateDestinationCommandHandler>();
 
 Logger log = new LoggerConfiguration()
              .MinimumLevel.Information()
