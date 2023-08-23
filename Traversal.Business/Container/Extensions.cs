@@ -1,10 +1,13 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Traversal.Business.Abstract;
+using Traversal.Business.Abstract.AbstractUow;
 using Traversal.Business.Concrete;
+using Traversal.Business.Concrete.ConcreteUow;
 using Traversal.Business.ValidationRules.AnnouncementValidationRules;
 using Traversal.DataAccess.Abstract;
 using Traversal.DataAccess.EntityFramework;
+using Traversal.DataAccess.UnitOfWork;
 using Traversal.DTOLayer.DTOs.AnnouncementDTOs;
 
 namespace Traversal.Business.Container
@@ -36,6 +39,11 @@ namespace Traversal.Business.Container
 
             services.AddScoped<IAnnouncementService, AnnouncementManager>();
             services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
+
+            services.AddScoped<IAccountService, AccountManager>();
+            services.AddScoped<IAccountDal, EfAccountDal>();
+
+            services.AddScoped<IUowDal, UowDal>();
         }
 
         public static void CustomValidator(this IServiceCollection services)
