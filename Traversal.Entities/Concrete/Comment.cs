@@ -12,5 +12,7 @@ namespace Traversal.Entities.Concrete
         public bool State { get; set; }
         public int DestinationId { get; set; }
         public Destination Destination { get; set; }
+        public int AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }

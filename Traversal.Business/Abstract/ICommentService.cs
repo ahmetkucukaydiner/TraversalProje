@@ -6,5 +6,7 @@ namespace Traversal.Business.Abstract
     {
         List<Comment> TGetDestinationById(int id);
         List<Comment> GetListCommentWithDestination();
+        List<Comment> TGetListCommentWithDestinationAndUser(int id);
+
     }
 }
