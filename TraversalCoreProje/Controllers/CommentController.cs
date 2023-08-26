@@ -7,12 +7,14 @@ namespace TraversalCoreProje.Controllers
 {
     public class CommentController : Controller
     {
-        private CommentManager commentManager = new CommentManager(new EfCommentDal());
+        private readonly CommentManager commentManager = new CommentManager(new EfCommentDal());
 
         [HttpGet]
-        public PartialViewResult AddComment(int id)
+        public PartialViewResult AddComment()
         {
-            ViewBag.DestinationId = id;
+            //ViewBag.DestinationId = id;
+            // var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            //ViewBag.UserId = values.Id;
             return PartialView();
         }
 

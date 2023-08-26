@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Traversal.DataAccess.Concrete;
 
@@ -11,9 +12,11 @@ using Traversal.DataAccess.Concrete;
 namespace Traversal.DataAccess.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230826192351_mig_comment_delete_user")]
+    partial class mig_comment_delete_user
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -458,9 +461,6 @@ namespace Traversal.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("BlogPostDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
@@ -488,9 +488,6 @@ namespace Traversal.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("GuideID")
-                        .HasColumnType("int");
-
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -506,8 +503,6 @@ namespace Traversal.DataAccess.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("GuideID");
 
                     b.ToTable("Destinations");
                 });
@@ -777,15 +772,6 @@ namespace Traversal.DataAccess.Migrations
                     b.Navigation("Destination");
                 });
 
-            modelBuilder.Entity("Traversal.Entities.Concrete.Destination", b =>
-                {
-                    b.HasOne("Traversal.Entities.Concrete.Guide", "Guide")
-                        .WithMany("Destinations")
-                        .HasForeignKey("GuideID");
-
-                    b.Navigation("Guide");
-                });
-
             modelBuilder.Entity("Traversal.Entities.Concrete.Reservation", b =>
                 {
                     b.HasOne("Traversal.Entities.Concrete.AppUser", "AppUser")
@@ -817,11 +803,6 @@ namespace Traversal.DataAccess.Migrations
                     b.Navigation("Comment");
 
                     b.Navigation("Reservations");
-                });
-
-            modelBuilder.Entity("Traversal.Entities.Concrete.Guide", b =>
-                {
-                    b.Navigation("Destinations");
                 });
 #pragma warning restore 612, 618
         }

@@ -37,5 +37,10 @@ namespace Traversal.Business.Concrete
         {
             return _destinationDal.Get(x => x.Id == id);
         }
+
+        public Destination TGetDestinationWithGuide(int id)
+        {
+            return _destinationDal.GetDestinationWithGuide(id);
+        }
     }
 }
