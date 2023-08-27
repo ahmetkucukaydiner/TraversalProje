@@ -5,10 +5,12 @@ using Traversal.Business.Abstract.AbstractUow;
 using Traversal.Business.Concrete;
 using Traversal.Business.Concrete.ConcreteUow;
 using Traversal.Business.ValidationRules.AnnouncementValidationRules;
+using Traversal.Business.ValidationRules.ContactUsValidationRules;
 using Traversal.DataAccess.Abstract;
 using Traversal.DataAccess.EntityFramework;
 using Traversal.DataAccess.UnitOfWork;
 using Traversal.DTOLayer.DTOs.AnnouncementDTOs;
+using Traversal.DTOLayer.DTOs.ContactDTOs;
 
 namespace Traversal.Business.Container
 {
@@ -49,6 +51,7 @@ namespace Traversal.Business.Container
         public static void CustomValidator(this IServiceCollection services)
         {
             services.AddTransient<IValidator<AnnouncementAddDto>, AnnouncementValidator>();
+            services.AddTransient<IValidator<SendMessageDto>, SendContactUsValidator>();
         }
     }
 }
