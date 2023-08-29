@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Traversal.SignalRApi.DAL;
+using Traversal.SignalRApi.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,9 @@ builder.Services.AddEntityFrameworkNpgsql().AddDbContext<Context>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddScoped<VisitorService>();
+builder.Services.AddSignalR();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
