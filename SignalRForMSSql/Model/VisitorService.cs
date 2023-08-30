@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
-using SignalRApi.DAL;
 using System.Data;
-using Traversal.SignalRApi.DAL;
-using Traversal.SignalRApi.Hubs;
+using Traversal.SignalRApiForMSSql.Hubs;
+using Traversal.SignalRForMSSql.DAL;
 
-namespace Traversal.SignalRApi.Model
+namespace Traversal.SignalRApiForMSSql.Model
 {
     public class VisitorService
     {
@@ -27,7 +26,7 @@ namespace Traversal.SignalRApi.Model
         {
             await _context.Visitors.AddAsync(visitor);
             await _context.SaveChangesAsync();
-            await _hubContext.Clients.All.SendAsync("CallVisitorList", "bbbb");
+            await _hubContext.Clients.All.SendAsync("CallVisitorList", "aaaaaa");
         }
 
         public List<VisitorChart> GetVisitorChartList()
@@ -35,7 +34,7 @@ namespace Traversal.SignalRApi.Model
             List<VisitorChart> visitorCharts = new List<VisitorChart>();
             using (var command = _context.Database.GetDbConnection().CreateCommand())
             {
-                command.CommandText = "select * from crosstab ('select VisitDate,City, CityVisitCount from Visitors order by 1,2') as ct(VisitDate date, City1 int, City2 int, City3 int, City4 int, City5 int, City6 int);";
+                command.CommandText = "query";
                 command.CommandType = CommandType.Text;
                 _context.Database.OpenConnection();
                 using (var reader = command.ExecuteReader())

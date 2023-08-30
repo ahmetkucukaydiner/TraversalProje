@@ -1,26 +1,26 @@
 using Microsoft.EntityFrameworkCore;
-using Traversal.SignalRApi.DAL;
-using Traversal.SignalRApi.Hubs;
-using Traversal.SignalRApi.Model;
+using Traversal.SignalRApiForMSSql.Hubs;
+using Traversal.SignalRApiForMSSql.Model;
+using Traversal.SignalRForMSSql.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddEntityFrameworkNpgsql().AddDbContext<Context>(options =>
+builder.Services.AddDbContext<Context>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 builder.Services.AddScoped<VisitorService>();
 builder.Services.AddSignalR();
 
-builder.Services.AddCors(options => options.AddPolicy("CorsPolicy", builder2 =>
+builder.Services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
 {
-    builder2.AllowAnyHeader()
-            .AllowAnyMethod()
-            .SetIsOriginAllowed((host) => true)
-            .AllowCredentials();
+    builder.AllowAnyHeader()
+           .AllowAnyMethod()
+           .SetIsOriginAllowed((host) => true)
+           .AllowCredentials();
 }));
 
 builder.Services.AddControllers();
@@ -41,13 +41,13 @@ app.UseRouting();
 
 app.UseCors("CorsPolicy");
 
+app.UseAuthorization();
+
+app.MapControllers();
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapHub<VisitorHub>("/VisitorHub");
 });
-
-app.UseAuthorization();
-
-app.MapControllers();
 
 app.Run();
