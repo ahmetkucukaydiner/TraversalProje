@@ -15,5 +15,14 @@ namespace Traversal.DataAccess.EntityFramework
                 return c.Destinations.Where(x => x.Id == id).Include(x => x.Guide).FirstOrDefault();
             }
         }
+
+        public List<Destination> GetLast4Destinations()
+        {
+            using (var c = new Context())
+            {
+                var values = c.Destinations.Take(4).OrderByDescending(x => x.Id).ToList();
+                return values;
+            }
+        }
     }
 }
