@@ -361,3 +361,22 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+*.cs
+/SignalRApi/Traversal.SignalRApi.csproj
+/SignalRForMSSql/Migrations/20230830172943_mig_1.cs
+/SignalRForMSSql/Migrations/20230830172943_mig_1.Designer.cs
+/Traversal.DataAccess/Migrations/20230718221425_mig1.cs
+/Traversal.DataAccess/Migrations/20230718221425_mig1.Designer.cs
+/Traversal.DataAccess/Migrations/20230724193254_mig_add_destination_details.cs
+/Traversal.DataAccess/Migrations/20230724193254_mig_add_destination_details.Designer.cs
+/Traversal.DataAccess/Migrations/20230724200314_mig_add_comment.cs
+/Traversal.DataAccess/Migrations/20230724200314_mig_add_comment.Designer.cs
+/Traversal.DataAccess/Migrations/20230727185414_mig_add_identity.cs
+/Traversal.DataAccess/Migrations/20230727185414_mig_add_identity.Designer.cs
+/Traversal.DataAccess/Migrations/20230729190630_mig_add_imageurl_gender_nullable.cs
+/Traversal.DataAccess/Migrations/20230729190630_mig_add_imageurl_gender_nullable.Designer.cs
+/Traversal.DataAccess/Migrations/20230729201303_mig_add_reservation_entity.cs
+/Traversal.DataAccess/Migrations/20230729201303_mig_add_reservation_entity.Designer.cs
+/Traversal.DataAccess/Migrations/20230729201545_mig_remove_reservation_entity.cs
+/Traversal.DataAccess/Migrations/20230729201545_mig_remove_reservation_entity.Designer.cs
+/Traversal.DataAccess/Migrations/20230729201659_mig_add_reservation_entityv2.cs
