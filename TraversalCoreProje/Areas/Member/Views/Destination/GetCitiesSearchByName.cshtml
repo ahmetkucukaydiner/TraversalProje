@@ -1,7 +1,8 @@
 ﻿@using Traversal.Entities.Concrete
 @model List<Destination>
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "GetCitiesSearchByName";
     Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
 
@@ -9,7 +10,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Aktif Tur Rotalarımız</h4>
+                <h4 class="card-title">Tur Rotası Arama Sayfası</h4>
                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                 <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -23,6 +24,14 @@
             <div class="card-content collapse show">
                 <div class="card-body">
                     <p class="card-text">Web sitemiz Traversal üzerindeki aktif tur rotalarımız aşağıda listelenmiştir. </p>
+                    <form asp-action="GetCitiesSearchByName" method="get" asp-area="Member">
+                        <div>
+                            <p>Lütfen aranacak şehri giriniz: <input type="text" name="searchString" class="form-control" values="@ViewData["CurrentFilter"]"/> 
+                                <br />
+                            <input type="submit" value="Şehir Ara" class="btn btn-outline-success"/>
+                            </p>
+                        </div>
+                    </form>
                     <div class="table-responsive">
                         @if (!Model.Any())
                         {
@@ -62,3 +71,4 @@
         </div>
     </div>
 </div>
+

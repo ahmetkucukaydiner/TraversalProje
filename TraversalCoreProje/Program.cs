@@ -50,6 +50,14 @@ builder.Services.AddLocalization(opt =>
     opt.ResourcesPath = "Resources";
 });
 
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.SetDefaultCulture("tr");
+    options.AddSupportedUICultures("tr", "fr", "en");
+    options.FallBackToParentUICultures = true;
+    options.RequestCultureProviders.Clear();
+});
+
 
 builder.Services.AddMvc(config =>
 {
@@ -86,10 +94,10 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
-var supportedCultures = new[] { "en", "fr", "es", "gr", "tr", "de" };
-var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[4]).AddSupportedCultures(supportedCultures).AddSupportedUICultures(supportedCultures);
+//var supportedCultures = new[] { "en", "fr", "es", "gr", "tr", "de" };
+//var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0]).AddSupportedCultures(supportedCultures).AddSupportedUICultures(supportedCultures);
 
-app.UseRequestLocalization(localizationOptions);
+app.UseRequestLocalization();
 
 app.UseEndpoints(endpoints =>
 {
