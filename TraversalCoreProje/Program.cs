@@ -52,10 +52,10 @@ builder.Services.AddLocalization(opt =>
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
-    options.SetDefaultCulture("tr");
-    options.AddSupportedUICultures("tr", "fr", "en");
-    options.FallBackToParentUICultures = true;
-    options.RequestCultureProviders.Clear();
+    var supportedCultures = new[] { "tr", "en", "fr" };
+    options.SetDefaultCulture(supportedCultures[0]);
+    options.AddSupportedCultures(supportedCultures);
+    options.AddSupportedUICultures(supportedCultures);
 });
 
 

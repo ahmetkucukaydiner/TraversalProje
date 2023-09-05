@@ -8,6 +8,7 @@ using Traversal.Entities.Concrete;
 namespace TraversalCoreProje.Areas.Member.Controllers
 {
     [Area("Member")]
+    [Route("Member/[controller]/[action]")]
     public class ReservationController : Controller
     {
         private DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());

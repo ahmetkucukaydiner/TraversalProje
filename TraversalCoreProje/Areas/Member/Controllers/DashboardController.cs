@@ -6,6 +6,7 @@ using Traversal.Entities.Concrete;
 namespace TraversalCoreProje.Areas.Member.Controllers
 {
     [Area("Member")]
+    [Route("Member/[controller]/[action]")]
     public class DashboardController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
