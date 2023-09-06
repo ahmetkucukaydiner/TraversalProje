@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Serilog;
@@ -33,7 +34,8 @@ builder.Host.UseSerilog(log);
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>()
        .AddEntityFrameworkStores<Context>()
-       .AddErrorDescriber<CustomIdentityValidator>();
+       .AddErrorDescriber<CustomIdentityValidator>()
+       .AddTokenProvider<DataProtectorTokenProvider<AppUser>>(TokenOptions.DefaultProvider);
 
 builder.Services.AddHttpClient();
 

@@ -36,9 +36,7 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
             SmtpClient smtpClient = new SmtpClient();
             smtpClient.Connect("smtp.gmail.com", 587, false);
             smtpClient.Authenticate("projelerleyazilim@gmail.com", "mrfutgtosroysvub");
-
             smtpClient.Send(mimeMessage);
-
             smtpClient.Disconnect(true);
 
             return View();
