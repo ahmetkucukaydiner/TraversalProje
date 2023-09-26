@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Traversal.DataAccess.Concrete;
 
 namespace TraversalCoreProje.ViewComponents.Default
 {
@@ -6,7 +7,9 @@ namespace TraversalCoreProje.ViewComponents.Default
     {
         public IViewComponentResult Invoke()
         {
-            return View();
+            using var c = new Context();
+            var destinations = c.Destinations.Select(d => d.City).ToList();
+            return View(destinations);
         }
     }
 }

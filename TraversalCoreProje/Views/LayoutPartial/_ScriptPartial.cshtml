@@ -67,6 +67,17 @@
         });
     });
 </script>
-<!--//MENU-JS-->
 
-<script src="~/Traversal-Liberty/assets/js/bootstrap.min.js"></script>
+<script>
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById('myDate').value = today
+</script>
+        <!--//MENU-JS-->
+
+<script src="~/Traversal-Liberty/assets/js/bootstrap.min.js">
+</script>
